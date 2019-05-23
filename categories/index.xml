@@ -2,13 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 日々の記録</title>
-    <link>https://nattochaduke.github.io/blog/categories/</link>
+    <link>https://your_web_site/categories/</link>
     <description>Recent content in Categories on 日々の記録</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-jp</language>
+    <language>ja</language>
+    <copyright>&amp;copy;nattochaduke 2019</copyright>
+    <lastBuildDate>Thu, 23 May 2019 14:43:38 +0900</lastBuildDate>
     
-	<atom:link href="https://nattochaduke.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://your_web_site/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chainer</title>
+      <link>https://your_web_site/categories/chainer/</link>
+      <pubDate>Thu, 23 May 2019 14:43:38 +0900</pubDate>
+      
+      <guid>https://your_web_site/categories/chainer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ChainerCV</title>
+      <link>https://your_web_site/categories/chainercv/</link>
+      <pubDate>Thu, 23 May 2019 14:43:38 +0900</pubDate>
+      
+      <guid>https://your_web_site/categories/chainercv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://your_web_site/categories/deep-learning/</link>
+      <pubDate>Thu, 23 May 2019 14:43:38 +0900</pubDate>
+      
+      <guid>https://your_web_site/categories/deep-learning/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

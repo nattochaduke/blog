@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 日々の記録</title>
-    <link>https://your_web_site/posts/</link>
-    <description>Recent content in Posts on 日々の記録</description>
+    <title>ChainerCV on 日々の記録</title>
+    <link>https://your_web_site/categories/chainercv/</link>
+    <description>Recent content in ChainerCV on 日々の記録</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;nattochaduke 2019</copyright>
     <lastBuildDate>Thu, 23 May 2019 14:43:38 +0900</lastBuildDate>
     
-	<atom:link href="https://your_web_site/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://your_web_site/categories/chainercv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       <pubDate>Thu, 23 May 2019 14:43:38 +0900</pubDate>
       
       <guid>https://your_web_site/posts/post_2020_5_23_0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://your_web_site/posts/my-first-post/</link>
-      <pubDate>Thu, 23 May 2019 13:50:13 +0900</pubDate>
-      
-      <guid>https://your_web_site/posts/my-first-post/</guid>
       <description></description>
     </item>
     
