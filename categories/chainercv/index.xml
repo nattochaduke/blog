@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ChainerCV on 日々の記録</title>
-    <link>https://your_web_site/categories/chainercv/</link>
+    <link>https://nattochaduke.github.io/blog/categories/chainercv/</link>
     <description>Recent content in ChainerCV on 日々の記録</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>&amp;copy;nattochaduke 2019</copyright>
     <lastBuildDate>Thu, 23 May 2019 14:43:38 +0900</lastBuildDate>
     
-	<atom:link href="https://your_web_site/categories/chainercv/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nattochaduke.github.io/blog/categories/chainercv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>chainercvのモデルでファインチューニングしようとして死ぬ</title>
-      <link>https://your_web_site/posts/post_2020_5_23_0/</link>
+      <link>https://nattochaduke.github.io/blog/posts/post_2020_5_23_0/</link>
       <pubDate>Thu, 23 May 2019 14:43:38 +0900</pubDate>
       
-      <guid>https://your_web_site/posts/post_2020_5_23_0/</guid>
+      <guid>https://nattochaduke.github.io/blog/posts/post_2020_5_23_0/</guid>
       <description></description>
     </item>
     
