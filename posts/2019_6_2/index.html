@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'U-12345678-0', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  EfficientNetを再現したい &ndash; 日々の記録
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="|日々の進捗やトラブルの記録.自分用.">
+    
+
+    <meta name="apple-mobile-web-app-title" content="日々の記録">
+    
+    
+    <link rel="icon" href="/favicon-64.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="mask-icon" size="any" href="/pinned-icon.svg">
+    
+    
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@nattochaduke">
+    <meta name="twitter:creator" content="@nattochaduke">
+    <meta name="twitter:title" content="EfficientNetを再現したい | 日々の記録">
+    <meta name="twitter:description" content="|日々の進捗やトラブルの記録.自分用.">
+    <meta name="twitter:image" content="https://nattochaduke.github.io/blogtwitter-card.png">
+    
+
+
+    <link rel="stylesheet" href="/blog/assets/syntax.css">
+    <link rel="stylesheet" href="/blog/assets/primer-build.css">
+    <link rel="stylesheet" href="/blog/assets/style.css">
+  </head>
+
+
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white h-100">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions muted-link h2" href="https://nattochaduke.github.io/blog">
+    日々の記録
+  </a>
+
+  
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+
+<div class="Subhead">
+  <div class="Subhead-heading">
+    <div class="h1 mt-3 mb-1">EfficientNetを再現したい</div>
+  </div>
+  <div class="Subhead-description">
+    
+
+
+<a href='/blog/categories/chainer' class="muted-link">
+  <span class="Label Label--gray-darker">Chainer</span>
+</a>
+
+<a href='/blog/categories/deep-learning' class="muted-link">
+  <span class="Label Label--gray-darker">Deep Learning</span>
+</a>
+
+
+
+
+
+    
+    <div class="float-md-right">
+      <span title="Lastmod: 2019-06-02. Published at: 2019-06-02.">
+        
+          Lastmod: 2019-06-02
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+<article>
+  
+  <section class="pb-6 mb-3 border-bottom">
+    <p>元ネタ: Tan and Le, &ldquo;EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks&rdquo;, Arxiv:1905.11946, 2019.</p>
+
+<p><a href="https://github.com/nattochaduke/EfficientNet_Chainer">リポジトリ</a></p>
+
+<p>EfficientNetは強化学習によって設計された画像識別モデル.軽くて性能がいい(らしい).</p>
+
+<p><a href="https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet">公式のリポジトリ</a>を見ながら実装.パラメータ数は論文と同じ(目分量)になったし,順伝播と逆伝播が動くので次は学習コードを書く.</p>
+
+<p>気がかりな点は,論文だと 224 -&gt; 112 -&gt; 112 -&gt; 56 -&gt; 28 -&gt; 28 -&gt; 14 -&gt; 7 -&gt;7と解像度が落ちていくのにこの実装(と公式実装)だと 224 -&gt; 112 -&gt; 112 -&gt; 56 -&gt; 28 -&gt; 14 -&gt; 14 -&gt; 7 -&gt; 7となっている点. しばらく待っていればどちらかに修正が入るはず.</p>
+
+  </section>
+
+  <section>
+    
+      
+    
+  </section>
+</article>
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+  
+    <div id="toc" class="Box Box--blue mb-3">
+      <b>EfficientNetを再現したい</b>
+      
+    </div>
+  
+
+  
+    
+    
+      <div>
+        
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        
+
+        
+
+        
+          <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+        
+
+        
+          <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+          <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+        
+
+      </div>
+    
+  
+
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+        
+
+  <span class="text-small text-gray">
+    &copy;nattochaduke 2019 &middot; 
+
+    Powered by the
+    <a href="https://github.com/qqhann/hugo-primer" class="link-gray-dark">Hugo-Primer</a> theme for
+    <a href="https://gohugo.io" class="link-gray-dark">Hugo</a>.
+  </span>
+
+
+      </div>
+    </div>
+
+
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+  </body>
+</html>
