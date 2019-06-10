@@ -91,9 +91,9 @@ if (!doNotTrack) {
 
     
     <div class="float-md-right">
-      <span title="Lastmod: 2019-06-02. Published at: 2019-06-02.">
+      <span title="Lastmod: 2019-06-10. Published at: 2019-06-02.">
         
-          Lastmod: 2019-06-02
+          Lastmod: 2019-06-10
         
       </span>
     </div>
@@ -112,6 +112,8 @@ if (!doNotTrack) {
 <p><a href="https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet">公式のリポジトリ</a>を見ながら実装.パラメータ数は論文と同じ(目分量)になったし,順伝播と逆伝播が動くので次は学習コードを書く.</p>
 
 <p>気がかりな点は,論文だと 224 -&gt; 112 -&gt; 112 -&gt; 56 -&gt; 28 -&gt; 28 -&gt; 14 -&gt; 7 -&gt;7と解像度が落ちていくのにこの実装(と公式実装)だと 224 -&gt; 112 -&gt; 112 -&gt; 56 -&gt; 28 -&gt; 14 -&gt; 14 -&gt; 7 -&gt; 7となっている点. しばらく待っていればどちらかに修正が入るはず.</p>
+
+<p>2019/6/10追記 <a href="https://github.com/tensorflow/tpu/issues/383のとおり,実装のほうが正しい">https://github.com/tensorflow/tpu/issues/383のとおり,実装のほうが正しい</a>.</p>
 
   </section>
 
