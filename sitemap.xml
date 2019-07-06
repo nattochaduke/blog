@@ -4,7 +4,36 @@
   
   <url>
     <loc>https://nattochaduke.github.io/blog/categories/</loc>
-    <lastmod>2019-06-22T01:09:31+09:00</lastmod>
+    <lastmod>2019-07-06T19:51:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nattochaduke.github.io/blog/categories/deep-learning/</loc>
+    <lastmod>2019-07-06T19:51:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nattochaduke.github.io/blog/posts/2019_7_2/2019_7_2/</loc>
+    <lastmod>2019-07-06T19:51:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nattochaduke.github.io/blog/posts/</loc>
+    <lastmod>2019-07-06T19:51:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nattochaduke.github.io/blog/categories/pruning/</loc>
+    <lastmod>2019-07-06T19:51:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nattochaduke.github.io/blog/</loc>
+    <lastmod>2019-07-06T19:51:34+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -15,26 +44,8 @@
   </url>
   
   <url>
-    <loc>https://nattochaduke.github.io/blog/categories/deep-learning/</loc>
-    <lastmod>2019-06-22T01:09:31+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://nattochaduke.github.io/blog/posts/2019_6_22/2019_6_22/</loc>
     <lastmod>2019-06-22T01:09:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nattochaduke.github.io/blog/posts/</loc>
-    <lastmod>2019-06-22T01:09:31+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://nattochaduke.github.io/blog/</loc>
-    <lastmod>2019-06-22T01:09:31+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

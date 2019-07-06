@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'U-12345678-0', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  Lottery Ticket仮説周辺 &ndash; 日々の記録
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="|日々の進捗やトラブルの記録.自分用.">
+    
+
+    <meta name="apple-mobile-web-app-title" content="日々の記録">
+    
+    
+    <link rel="icon" href="/favicon-64.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="mask-icon" size="any" href="/pinned-icon.svg">
+    
+    
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@nattochaduke">
+    <meta name="twitter:creator" content="@nattochaduke">
+    <meta name="twitter:title" content="Lottery Ticket仮説周辺 | 日々の記録">
+    <meta name="twitter:description" content="|日々の進捗やトラブルの記録.自分用.">
+    <meta name="twitter:image" content="https://nattochaduke.github.io/blogtwitter-card.png">
+    
+
+
+    <link rel="stylesheet" href="/blog/assets/syntax.css">
+    <link rel="stylesheet" href="/blog/assets/primer-build.css">
+    <link rel="stylesheet" href="/blog/assets/style.css">
+  </head>
+
+
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white h-100">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions muted-link h2" href="https://nattochaduke.github.io/blog">
+    日々の記録
+  </a>
+
+  
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+
+<div class="Subhead">
+  <div class="Subhead-heading">
+    <div class="h1 mt-3 mb-1">Lottery Ticket仮説周辺</div>
+  </div>
+  <div class="Subhead-description">
+    
+
+
+<a href='/blog/categories/deep-learning' class="muted-link">
+  <span class="Label Label--gray-darker">Deep Learning</span>
+</a>
+
+<a href='/blog/categories/pruning' class="muted-link">
+  <span class="Label Label--gray-darker">Pruning</span>
+</a>
+
+
+
+
+
+    
+    <div class="float-md-right">
+      <span title="Lastmod: 2019-07-06. Published at: 2019-07-06.">
+        
+          Lastmod: 2019-07-06
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+<article>
+  
+  <section class="pb-6 mb-3 border-bottom">
+    
+
+<h3 id="jonathan-frankle-and-michael-carbin-the-lottery-ticket-hypothesis-finding-sparse-trainable-neural-networks-iclr-2019-2019">Jonathan Frankle and Michael Carbin, &ldquo;The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks&rdquo;, ICLR 2019, 2019</h3>
+
+<p>Lottery Ticket Hypothesisとは&rdquo;ランダムに初期化された全結合ネットワークは,独立に訓練されれば,もとのネットワークと比べて同等のtest accuracyに同等の学習イテレーションで到達するサブネットワークを複数含む&rdquo;という仮説.このサブネットワークを*winning ticket(s)*と呼ぶ.</p>
+
+<p>著者らはwinning ticketを同定するアルゴリズムを提案し,Lottery Ticket Theoremを実験によって確かめた. MNISTとCIFAR10のタスクでDNNのみならずCNNでも,もとのネットワークより10~20%の大きさで,より拘束に学習し,かつテスト精度の高いwinning ticketsが必ず見られた.</p>
+
+<p>winning ticket同定アルゴリズムは簡単で,$f$をネットワーク,$\theta$を重みとして,</p>
+
+<h5 id="algorithm-1">Algorithm 1</h5>
+
+<ol>
+<li>$\theta<em>0 \sim D</em>{\theta}$によって重みを初期化する</li>
+<li>$f$を$j$イテレーション学習し,その結果の重みを$\theta_j$とする.</li>
+<li>$\theta_j$から$p\%$をpruningし,マスク$m$を得る.$m$は${0, 1}$をとり$\theta$と同じ形をした構造で,$m==0$の部分がpruningりされる.</li>
+<li>$m\bigodot\theta_0$がwinning ticket.</li>
+</ol>
+
+<p>この論文ではさらにこのアルゴリズムを繰り返し適用する(iterative pruning)実験も行う.3.において$p^{\frac{1}{n}}$だけ枝刈りするようにし,$n$回繰り返すのである.iterative pruningの優位性も実験によって確かめている.CIFAR10においてVGG19を使った実験ではiterative pruningは特にwarmupを使うことで高速且つ高精度に学習することがわかった一方,Resnet-18を使った実験ではwinning ticketは学習が早いが精度の点では30kイテレーションの学習ではpruningを行わないモデルよりも低くなった. より深いモデルでiterative pruningが精度が下がるどころかろくに収束しなくなる現象がGale et al., &ldquo;The State of Sparsity in Deep Neural Networks&rdquo;, 2019で報告された.</p>
+
+<h3 id="frankle-et-al-stabilizing-the-lottery-ticket-hypothesis">Frankle et al, &ldquo;Stabilizing the Lottery Ticket Hypothesis&rdquo;</h3>
+
+<p>深いモデルでWinning ticketsが機能しなく成る問題について,学習の初期での確率的な挙動が大きくサブネットワークが不安定に成るためだと考え,pruningで得たマスクをランダムな初期値に掛けるのでなく,僅かに学習しておいた重みに掛けることで学習を安定させる*rewinding*を提案した (alg. 2) .</p>
+
+<h5 id="algorithm-2-iterative-magnitude-pruning-imp-with-rewinding-to-iteration-k">Algorithm 2 Iterative Magnitude Pruning (IMP) with rewinding to iteration k</h5>
+
+<ol>
+<li>$f(x; m\odot W_0)$を初期化し,$m==1$というマスク(何もマスクしない)を設定する</li>
+<li>$f$を$k$イテレーション学習し,その結果の重みを$f(x;m\odot W_k)$を得る.</li>
+<li>$f$を$T-k$イテレーション学習し,$f(x;m\odot W_T)$を得る.</li>
+<li>lowest magnituesによって$W_T$からマスク$m$を得る.</li>
+<li>満足したら$f(x; m\odot W_t)$を返す</li>
+<li>満足しないなら,3-5を繰り返す</li>
+</ol>
+
+  </section>
+
+  <section>
+    
+      
+    
+  </section>
+</article>
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+  
+    <div id="toc" class="Box Box--blue mb-3">
+      <b>Lottery Ticket仮説周辺</b>
+      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#jonathan-frankle-and-michael-carbin-the-lottery-ticket-hypothesis-finding-sparse-trainable-neural-networks-iclr-2019-2019">Jonathan Frankle and Michael Carbin, &ldquo;The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks&rdquo;, ICLR 2019, 2019</a>
+<ul>
+<li>
+<ul>
+<li><a href="#algorithm-1">Algorithm 1</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#frankle-et-al-stabilizing-the-lottery-ticket-hypothesis">Frankle et al, &ldquo;Stabilizing the Lottery Ticket Hypothesis&rdquo;</a>
+<ul>
+<li>
+<ul>
+<li><a href="#algorithm-2-iterative-magnitude-pruning-imp-with-rewinding-to-iteration-k">Algorithm 2 Iterative Magnitude Pruning (IMP) with rewinding to iteration k</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+  
+
+  
+    
+    
+      <div>
+        
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        
+
+        
+
+        
+          <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+        
+
+        
+          <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+          <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+        
+
+      </div>
+    
+  
+
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+        
+
+  <span class="text-small text-gray">
+    &copy;nattochaduke 2019 &middot; 
+
+    Powered by the
+    <a href="https://github.com/qqhann/hugo-primer" class="link-gray-dark">Hugo-Primer</a> theme for
+    <a href="https://gohugo.io" class="link-gray-dark">Hugo</a>.
+  </span>
+
+
+      </div>
+    </div>
+
+
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+  </body>
+</html>
